@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Rino : MonoBehaviour
 {
+    [SerializeField] private int daño;
     private Animator animator;
     private bool mirandoIzquierda = true;
 
@@ -32,6 +33,10 @@ public class Rino : MonoBehaviour
                 MovimientoJugador movimientoJugador = other.gameObject.GetComponent<MovimientoJugador>();
                 movimientoJugador.Rebota();
                 animator.SetTrigger("Golpe");
+            }
+            else
+            {
+                other.gameObject.GetComponent<CombateJugador>().TomarDaño(daño);
             }
         }
     }

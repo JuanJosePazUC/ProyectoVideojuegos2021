@@ -83,7 +83,7 @@ public class MovimientoJugador : MonoBehaviour
 
     public void Rebota()
     {
-        rb2D.AddForce(new Vector2(0f, fuerzaDeSalto * 2));
+        rb2D.AddForce(new Vector2(0f, fuerzaDeSalto * 1.5f));
     }
 
     private void Girar()
@@ -100,6 +100,11 @@ public class MovimientoJugador : MonoBehaviour
     public void PuedeMoverTrue()
     {
         puedeMover = true;
+    }
+
+    public bool GetMirandoDerecha()
+    {
+        return mirandoDerecha;
     }
 
     private void OnDrawGizmos()
