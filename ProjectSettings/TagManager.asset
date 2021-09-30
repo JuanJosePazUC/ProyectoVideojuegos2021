@@ -3,16 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Fruta
+  - Enemigo
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Suelo
   - Water
   - UI
-  - 
-  - 
+  - Objetos
+  - Enemigos
   - 
   - 
   - 
@@ -40,4 +42,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Fondo
+    uniqueID: 2692395669
+    locked: 0
+  - name: Suelo
+    uniqueID: 1628061815
+    locked: 0
+  - name: Objetos
+    uniqueID: 2707904001
+    locked: 0
+  - name: Enemigos
+    uniqueID: 441881581
+    locked: 0
+  - name: Jugador
+    uniqueID: 3239168721
     locked: 0
