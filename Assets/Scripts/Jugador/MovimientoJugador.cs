@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovimientoJugador : MonoBehaviour
 {
-private Rigidbody2D rb2D;
+    private Rigidbody2D rb2D;
 
     [Header("Movimiento")]
     private float movimientoHorizontal = 0f;
@@ -12,6 +12,7 @@ private Rigidbody2D rb2D;
     [Range(0, 0.3f)] [SerializeField] private float suavizadoDeMovimiento;
     private Vector3 velocidad = Vector3.zero;
     private bool mirandoDerecha = true;
+    private bool puedeMover = false;
 
     [Header("Salto")]
     [SerializeField] private float fuerzaDeSalto;
@@ -49,7 +50,10 @@ private Rigidbody2D rb2D;
         animator.SetBool("enSuelo", enSuelo);
 
         //Mover
-        Mover(movimientoHorizontal * Time.fixedDeltaTime, salto);
+        if (puedeMover)
+        {
+            Mover(movimientoHorizontal * Time.fixedDeltaTime, salto);
+        }
 
         salto = false;
     }
@@ -77,10 +81,25 @@ private Rigidbody2D rb2D;
         }
     }
 
+    public void Rebota()
+    {
+        rb2D.AddForce(new Vector2(0f, fuerzaDeSalto * 2));
+    }
+
     private void Girar()
     {
         mirandoDerecha = !mirandoDerecha;
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y + 180, 0);
+    }
+
+    public void PuedeMoverFalse()
+    {
+        puedeMover = false;
+    }
+
+    public void PuedeMoverTrue()
+    {
+        puedeMover = true;
     }
 
     private void OnDrawGizmos()
