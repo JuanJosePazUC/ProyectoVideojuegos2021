@@ -49,7 +49,6 @@ public class MovimientoJugador : MonoBehaviour
         enSuelo = Physics2D.OverlapBox(controladorSuelo.position, dimensionesCaja, 0f, queEsSuelo);
         animator.SetBool("enSuelo", enSuelo);
 
-        //Mover
         if (puedeMover)
         {
             Mover(movimientoHorizontal * Time.fixedDeltaTime, salto);

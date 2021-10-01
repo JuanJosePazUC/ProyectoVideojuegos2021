@@ -17,7 +17,6 @@ public class BanderaFinal : MonoBehaviour
     {
         if (other.CompareTag("Player") && finalizar)
         {
-            Debug.Log("Victoria");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
