@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 7606403129273832879}
   - component: {fileID: 7606403129273832878}
   - component: {fileID: 7606403129273832873}
+  - component: {fileID: 1740501064}
   m_Layer: 3
   m_Name: Inicio
   m_TagString: Untagged
@@ -127,7 +128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 790ca580f6e59ab48a8eb43652e28b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiempoInicio: 2
   jugador: {fileID: 2548699962585326031, guid: 2f5ac3dce056f4e45aa1d9417db3f23c, type: 3}
   puntoSpawn: {fileID: 7606403127514584994}
 --- !u!61 &7606403129273832873
@@ -156,3 +156,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.123654, y: 0.48186445}
   m_EdgeRadius: 0
+--- !u!95 &1740501064
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7606403129273832877}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8f9bf9710dce350408ca9a38332ba848, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

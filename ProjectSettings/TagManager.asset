@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fruta
   - Enemigo
+  - BanderaFinal
   layers:
   - Default
   - TransparentFX
