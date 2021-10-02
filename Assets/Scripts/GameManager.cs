@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     private int cantidadFrutasTotal;
     private int cantidadFrutasRecolectadas;
     private int cantidadMinimaFrutas;
-    private int cantidadPuntos;
+    [SerializeField] private int cantidadPuntos;
     private int cantidadPuntosTemporal;
 
     private void Awake()
@@ -53,6 +53,11 @@ public class GameManager : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("BanderaFinal").GetComponent<BanderaFinal>().ActivarBandera();
         }
+    }
+
+    public void ReiniciarPuntaje()
+    {
+        cantidadPuntos = 0;
     }
 
 }

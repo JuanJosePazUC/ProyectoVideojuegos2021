@@ -69,4 +69,9 @@ public class CombateJugador : MonoBehaviour
         }
         rb2D.AddForce(new Vector2(fuerzaGolpe.x * direccionMovimiento, fuerzaGolpe.y), ForceMode2D.Impulse);
     }
+
+    private void OnDestroy()
+    {
+        Physics2D.IgnoreLayerCollision(7, 8, false);
+    }
 }

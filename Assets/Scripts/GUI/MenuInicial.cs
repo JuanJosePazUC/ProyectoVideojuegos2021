@@ -5,11 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class MenuInicial : MonoBehaviour
 {
+    private void Start()
+    {
+        GameManager.Instance.ReiniciarPuntaje();
+    }
     public void IniciarJuego()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-    public void Salir(){
+    public void Salir()
+    {
         Debug.Log("Saliendo...");
         Application.Quit();
     }
