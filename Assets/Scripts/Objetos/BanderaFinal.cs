@@ -17,6 +17,7 @@ public class BanderaFinal : MonoBehaviour
     {
         if (other.CompareTag("Player") && finalizar)
         {
+            GameManager.Instance.AumetarPuntos();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }

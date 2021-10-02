@@ -1,34 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
     private int cantidadFrutasTotal;
     private int cantidadFrutasRecolectadas;
     private int cantidadMinimaFrutas;
     private int cantidadPuntos;
-    private GameObject banderaFinal;
+    private int cantidadPuntosTemporal;
 
-    private void Start()
+    private void Awake()
     {
-        cantidadFrutasTotal = GameObject.FindGameObjectsWithTag("Fruta").Length;
-        banderaFinal = GameObject.FindGameObjectWithTag("BanderaFinal");
-        cantidadMinimaFrutas = cantidadFrutasTotal - 1;
+        if (GameManager.Instance == null)
+        {
+            GameManager.Instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        GameManager.Instance.Inicializar();
     }
 
-    private void AumentarPuntos(int cantidadPuntosEntrada)
+    private void Inicializar()
     {
-        cantidadPuntos += cantidadPuntosEntrada;
+        cantidadFrutasTotal = GameObject.FindGameObjectsWithTag("Fruta").Length;
+        cantidadMinimaFrutas = cantidadFrutasTotal - 1;
+        cantidadFrutasRecolectadas = 0;
+        cantidadPuntosTemporal = 0;
+    }
+
+    private void AumentarPuntosTemporal(int cantidadPuntosEntrada)
+    {
+        cantidadPuntosTemporal += cantidadPuntosEntrada;
+    }
+
+    public void AumetarPuntos()
+    {
+        cantidadPuntos += cantidadPuntosTemporal;
     }
 
     public void RecogerFruta(int puntos)
     {
         cantidadFrutasRecolectadas += 1;
-        AumentarPuntos(puntos);
+        AumentarPuntosTemporal(puntos);
         if (cantidadFrutasRecolectadas >= cantidadMinimaFrutas)
         {
-            banderaFinal.GetComponent<BanderaFinal>().ActivarBandera();
+            GameObject.FindGameObjectWithTag("BanderaFinal").GetComponent<BanderaFinal>().ActivarBandera();
         }
     }
 
