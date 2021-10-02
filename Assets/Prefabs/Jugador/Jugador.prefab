@@ -146,6 +146,7 @@ MonoBehaviour:
   controladorSuelo: {fileID: 2548699963295945108}
   dimensionesCaja: {x: 0.75, y: 0.2, z: 0}
   enSuelo: 0
+  velocidadMaximaY: 23
 --- !u!95 &2548699962585325877
 Animator:
   serializedVersion: 3

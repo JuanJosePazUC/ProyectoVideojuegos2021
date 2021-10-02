@@ -20,6 +20,7 @@ public class MovimientoJugador : MonoBehaviour
     [SerializeField] private Transform controladorSuelo;
     [SerializeField] private Vector3 dimensionesCaja;
     [SerializeField] private bool enSuelo;
+    [SerializeField] private float velocidadMaximaY;
     private bool salto = false;
 
     [Header("Animacion")]
@@ -52,6 +53,11 @@ public class MovimientoJugador : MonoBehaviour
         if (puedeMover)
         {
             Mover(movimientoHorizontal * Time.fixedDeltaTime, salto);
+        }
+
+        if (rb2D.velocity.y >= velocidadMaximaY)
+        {
+            rb2D.velocity = new Vector2(rb2D.velocity.x, velocidadMaximaY);
         }
 
         salto = false;
