@@ -9,6 +9,8 @@ public class Inicio : MonoBehaviour
 
     public void CrearJugador()
     {
+        int indexJugador = PlayerPrefs.GetInt("JugadorIndex");
+        GameObject jugador = GameManager.Instance.GetJugadores()[indexJugador];
         Instantiate(jugador, puntoSpawn.position, Quaternion.identity);
     }
 }

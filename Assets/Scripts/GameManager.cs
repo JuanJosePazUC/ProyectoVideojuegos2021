@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     private int cantidadMinimaFrutas;
     [SerializeField] private int cantidadPuntos;
     private int cantidadPuntosTemporal;
+    [SerializeField] private List<GameObject> jugadores;
 
     private void Awake()
     {
@@ -58,6 +59,11 @@ public class GameManager : MonoBehaviour
     public void ReiniciarPuntaje()
     {
         cantidadPuntos = 0;
+    }
+
+    public List<GameObject> GetJugadores()
+    {
+        return jugadores;
     }
 
 }
