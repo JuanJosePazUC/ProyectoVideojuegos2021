@@ -332,6 +332,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4194549753139283533, guid: d37cbc784e23b7543ab74916f388edfb, type: 3}
   m_PrefabInstance: {fileID: 4194549752998760658}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &167173726
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 167173728}
+  - component: {fileID: 167173727}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &167173727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167173726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202aaaee27e36d44bad0edecaa6b8e3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds: []
+--- !u!4 &167173728
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167173726}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &179001328
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,7 +418,7 @@ Transform:
   - {fileID: 909435783}
   - {fileID: 2145711080}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &185065054 stripped
 Transform:
@@ -749,7 +793,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &333950137
 PrefabInstance:
@@ -1227,7 +1271,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &576773167
 GameObject:
@@ -1279,7 +1323,7 @@ Transform:
   - {fileID: 1656499991}
   - {fileID: 490914043}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &588851626
 GameObject:
@@ -6319,7 +6363,7 @@ RectTransform:
   - {fileID: 1078169611}
   - {fileID: 299849594}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6537,7 +6581,7 @@ Transform:
   - {fileID: 2090968536}
   - {fileID: 347815885}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1180452362 stripped
 Transform:
@@ -6576,7 +6620,7 @@ Transform:
   - {fileID: 864866175}
   - {fileID: 2071047680}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1224048801 stripped
 Transform:
@@ -6830,7 +6874,7 @@ Transform:
   - {fileID: 806607455}
   - {fileID: 588851627}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1474562844
 GameObject:
@@ -6973,7 +7017,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2594397627272922838, guid: 4197aac8e54b84e49a75d81c63ffe0e7, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2594397627272922838, guid: 4197aac8e54b84e49a75d81c63ffe0e7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7085,7 +7129,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1589121703
 PrefabInstance:
@@ -7098,17 +7142,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trampolin (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2190754299144326487, guid: 23f29651fc275b044ac7d8e90036f0b1, type: 3}
+      propertyPath: fuerzaY
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2190754299144326489, guid: 23f29651fc275b044ac7d8e90036f0b1, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2190754299144326489, guid: 23f29651fc275b044ac7d8e90036f0b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.371551
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2190754299144326489, guid: 23f29651fc275b044ac7d8e90036f0b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5847173
+      value: 1.59
       objectReference: {fileID: 0}
     - target: {fileID: 2190754299144326489, guid: 23f29651fc275b044ac7d8e90036f0b1, type: 3}
       propertyPath: m_LocalPosition.z

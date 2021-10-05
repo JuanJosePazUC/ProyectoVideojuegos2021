@@ -8,6 +8,7 @@ public class CombateJugador : MonoBehaviour
     [SerializeField] private int puntosDeVidaMaximos;
     [SerializeField] private float tiempoIgnorarColisiones;
     [SerializeField] private Vector2 fuerzaGolpe;
+    private bool muerto = false;
     private MovimientoJugador movimientoJugador;
     private Animator animator;
     private Rigidbody2D rb2D;
@@ -68,6 +69,12 @@ public class CombateJugador : MonoBehaviour
             direccionMovimiento *= -1;
         }
         rb2D.AddForce(new Vector2(fuerzaGolpe.x * direccionMovimiento, fuerzaGolpe.y), ForceMode2D.Impulse);
+    }
+
+    public void MuertoTrue()
+    {
+        muerto = true;
+        animator.SetBool("Muerto", muerto);
     }
 
     private void OnDestroy()

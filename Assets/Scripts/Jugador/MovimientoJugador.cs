@@ -122,6 +122,7 @@ public class MovimientoJugador : MonoBehaviour
         {
             enPared = false;
             rb2D.velocity = new Vector2(fuerzaSaltoParedX * -inputX, fuerzaSaltoParedY);
+            AudioManager.Instance.Play("Dash");
             StartCoroutine(CambioSaltoPared());
         }
     }
