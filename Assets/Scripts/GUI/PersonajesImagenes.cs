@@ -30,6 +30,7 @@ public class PersonajesImagenes : MonoBehaviour
 
     public void SiguientePersonaje()
     {
+        AudioManager.Instance.Play("MenuMove");
         if (index == sprites.Count - 1)
         {
             index = 0;
@@ -43,6 +44,7 @@ public class PersonajesImagenes : MonoBehaviour
 
     public void AnteriorPersonaje()
     {
+        AudioManager.Instance.Play("MenuMove");
         if (index == 0)
         {
             index = sprites.Count - 1;

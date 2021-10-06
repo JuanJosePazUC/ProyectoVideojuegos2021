@@ -28,6 +28,7 @@ public class CombateJugador : MonoBehaviour
         StartCoroutine(DesactivarColisiones());
         SetPuntosDeVida();
         animator.SetTrigger("Golpe");
+        AudioManager.Instance.Play("Hit");
         FuerzaGolpe();
     }
 
@@ -47,6 +48,7 @@ public class CombateJugador : MonoBehaviour
 
     public void Muerte()
     {
+        AudioManager.Instance.Play("Die");
         Destroy(this.gameObject);
     }
 

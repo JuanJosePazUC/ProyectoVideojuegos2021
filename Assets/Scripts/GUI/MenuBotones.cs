@@ -11,6 +11,7 @@ public class MenuBotones : MonoBehaviour
     public void Pausar()
     {
         Time.timeScale = 0f;
+        AudioManager.Instance.Play("Pause");
         juegosPausado = true;
         menuPausa.SetActive(true);
         menuBotones.SetActive(false);
@@ -28,6 +29,7 @@ public class MenuBotones : MonoBehaviour
     public void Reanudar()
     {
         Time.timeScale = 1f;
+        AudioManager.Instance.Play("MenuBack");
         juegosPausado = false;
         menuPausa.SetActive(false);
         menuBotones.SetActive(true);

@@ -26,5 +26,6 @@ public class BanderaFinal : MonoBehaviour
     {
         finalizar = true;
         animator.SetTrigger("Terminar");
+        AudioManager.Instance.Play("FlagActivation");
     }
 }

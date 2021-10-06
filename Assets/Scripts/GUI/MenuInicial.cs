@@ -30,4 +30,14 @@ public class MenuInicial : MonoBehaviour
         AudioManager.Instance.Play("LevelTheme");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    public void MenuBackSonido()
+    {
+        AudioManager.Instance.Play("MenuBack");
+    }
+
+    public void MenuMoveSonido()
+    {
+        AudioManager.Instance.Play("MenuMove");
+    }
 }

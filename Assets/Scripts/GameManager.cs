@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     {
         cantidadFrutasRecolectadas += 1;
         AumentarPuntosTemporal(puntos);
+        AudioManager.Instance.Play("PickUpFruit");
         if (cantidadFrutasRecolectadas >= cantidadMinimaFrutas)
         {
             GameObject.FindGameObjectWithTag("BanderaFinal").GetComponent<BanderaFinal>().ActivarBandera();

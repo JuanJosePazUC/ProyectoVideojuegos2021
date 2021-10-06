@@ -114,22 +114,34 @@ public class MovimientoJugador : MonoBehaviour
 
         if (enSuelo && saltar && !deslizando)
         {
-            enSuelo = false;
-            rb2D.AddForce(new Vector2(0f, fuerzaDeSalto));
+            Salto();
         }
 
         if (enPared && saltar && deslizando)
         {
-            enPared = false;
-            rb2D.velocity = new Vector2(fuerzaSaltoParedX * -inputX, fuerzaSaltoParedY);
-            AudioManager.Instance.Play("Dash");
-            StartCoroutine(CambioSaltoPared());
+            SaltoPared();
         }
+    }
+
+    private void Salto()
+    {
+        enSuelo = false;
+        rb2D.AddForce(new Vector2(0f, fuerzaDeSalto));
+        AudioManager.Instance.Play("Jump");
+    }
+
+    private void SaltoPared()
+    {
+        enPared = false;
+        rb2D.velocity = new Vector2(fuerzaSaltoParedX * -inputX, fuerzaSaltoParedY);
+        AudioManager.Instance.Play("Dash");
+        StartCoroutine(CambioSaltoPared());
     }
 
     public void Rebota()
     {
         rb2D.AddForce(new Vector2(0f, fuerzaDeSalto * 1.5f));
+        AudioManager.Instance.Play("Bounce");
     }
 
     private void Girar()

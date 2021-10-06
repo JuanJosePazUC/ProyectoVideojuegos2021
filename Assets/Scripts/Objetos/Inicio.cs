@@ -12,5 +12,6 @@ public class Inicio : MonoBehaviour
         int indexJugador = PlayerPrefs.GetInt("JugadorIndex");
         GameObject jugador = GameManager.Instance.GetJugadores()[indexJugador];
         Instantiate(jugador, puntoSpawn.position, Quaternion.identity);
+        AudioManager.Instance.Play("Appear");
     }
 }
