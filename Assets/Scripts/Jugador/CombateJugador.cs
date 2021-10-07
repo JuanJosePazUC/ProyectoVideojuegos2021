@@ -9,6 +9,7 @@ public class CombateJugador : MonoBehaviour
     [SerializeField] private float tiempoIgnorarColisiones;
     [SerializeField] private Vector2 fuerzaGolpe;
     private bool muerto = false;
+    private BarraDeVida barraDeVida;
     private MovimientoJugador movimientoJugador;
     private Animator animator;
     private Rigidbody2D rb2D;
@@ -19,6 +20,8 @@ public class CombateJugador : MonoBehaviour
         animator = GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
         movimientoJugador = GetComponent<MovimientoJugador>();
+        barraDeVida = GameObject.Find("BarraDeVida").GetComponent<BarraDeVida>();
+        barraDeVida.CambiarVidaMaxima(puntosDeVidaMaximos);
         SetPuntosDeVida();
     }
 
@@ -55,6 +58,7 @@ public class CombateJugador : MonoBehaviour
     private void SetPuntosDeVida()
     {
         animator.SetInteger("Vida", puntosDeVida);
+        barraDeVida.CambiarVida(puntosDeVida);
     }
 
     IEnumerator DesactivarColisiones()
