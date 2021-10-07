@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     private int cantidadFrutasTotal;
     private int cantidadFrutasRecolectadas;
     private int cantidadMinimaFrutas;
-    [SerializeField] private int cantidadPuntos;
+    private int cantidadPuntos;
     private int cantidadPuntosTemporal;
     [SerializeField] private List<GameObject> jugadores;
 
@@ -65,6 +65,11 @@ public class GameManager : MonoBehaviour
     public List<GameObject> GetJugadores()
     {
         return jugadores;
+    }
+
+    public int GetCantidadPuntos()
+    {
+        return cantidadPuntos;
     }
 
 }
