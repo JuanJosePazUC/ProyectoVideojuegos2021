@@ -9,7 +9,7 @@ public class CombateJugador : MonoBehaviour
     [SerializeField] private float tiempoIgnorarColisiones;
     [SerializeField] private Vector2 fuerzaGolpe;
     private bool muerto = false;
-    private BarraDeVida barraDeVida;
+    private PuntosDeVida puntosDeVidaUI;
     private MovimientoJugador movimientoJugador;
     private Animator animator;
     private Rigidbody2D rb2D;
@@ -20,19 +20,31 @@ public class CombateJugador : MonoBehaviour
         animator = GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
         movimientoJugador = GetComponent<MovimientoJugador>();
-        barraDeVida = GameObject.Find("BarraDeVida").GetComponent<BarraDeVida>();
-        barraDeVida.CambiarVidaMaxima(puntosDeVidaMaximos);
+        puntosDeVidaUI = GameObject.FindGameObjectWithTag("PuntosDeVidaUI").GetComponent<PuntosDeVida>();
+        puntosDeVidaUI.InicializarPuntosVida(puntosDeVidaMaximos);
         SetPuntosDeVida();
     }
 
     public void TomarDaño(int dañoEntrante)
     {
-        puntosDeVida -= dañoEntrante;
+        int daño = CalcularDañoTotal(dañoEntrante);
+        puntosDeVida -= daño;
+        puntosDeVidaUI.CambiarVidaDaño(daño);
         StartCoroutine(DesactivarColisiones());
         SetPuntosDeVida();
         animator.SetTrigger("Golpe");
         AudioManager.Instance.Play("Hit");
         FuerzaGolpe();
+    }
+
+    public int CalcularDañoTotal(int dañoEntrante)
+    {
+        int puntosDeVidaTemp = puntosDeVida - dañoEntrante;
+        if (puntosDeVidaTemp < 0)
+        {
+            dañoEntrante = puntosDeVida;
+        }
+        return dañoEntrante;
     }
 
     public void Curar(int curacionEntrante)
@@ -58,7 +70,7 @@ public class CombateJugador : MonoBehaviour
     private void SetPuntosDeVida()
     {
         animator.SetInteger("Vida", puntosDeVida);
-        barraDeVida.CambiarVida(puntosDeVida);
+        //barraDeVida.CambiarVida(puntosDeVida);
     }
 
     IEnumerator DesactivarColisiones()
@@ -81,6 +93,11 @@ public class CombateJugador : MonoBehaviour
     {
         muerto = true;
         animator.SetBool("Muerto", muerto);
+    }
+
+    public int GetPuntosDeVidaMaximos()
+    {
+        return puntosDeVidaMaximos;
     }
 
     private void OnDestroy()
