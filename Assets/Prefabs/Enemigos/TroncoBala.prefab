@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7092070320912129972}
   - component: {fileID: 7092070320912129975}
   - component: {fileID: 7092070320912129971}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TroncoBala
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
