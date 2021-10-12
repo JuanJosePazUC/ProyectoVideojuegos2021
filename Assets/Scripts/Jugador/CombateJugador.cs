@@ -63,8 +63,12 @@ public class CombateJugador : MonoBehaviour
 
     public void Muerte()
     {
-        AudioManager.Instance.Play("Die");
         Destroy(this.gameObject);
+    }
+
+    public void SonidoMuerte()
+    {
+        AudioManager.Instance.Play("Die");
     }
 
     private void SetPuntosDeVida()

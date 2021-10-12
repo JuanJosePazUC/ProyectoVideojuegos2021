@@ -16,6 +16,7 @@ public class Trampolin : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             other.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, fuerzaY), ForceMode2D.Impulse);
+            AudioManager.Instance.Play("Bounce");
             animator.SetTrigger("Activar");
         }
     }

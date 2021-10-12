@@ -34,6 +34,7 @@ public class Rino_CorrerBehaviour : StateMachineBehaviour
 
         if (tocopared)
         {
+            AudioManager.Instance.Play("WallHit");
             animator.SetTrigger("Choca");
         }
     }

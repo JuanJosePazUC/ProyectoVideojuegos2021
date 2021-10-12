@@ -29,6 +29,9 @@ public class Spiker : MonoBehaviour
     {
         tiempoRestanteCambio = tiempoCambioEstado;
         espinasFuera = !espinasFuera;
+        if(espinasFuera){
+            AudioManager.Instance.Play("Spikes");
+        }
         animator.SetTrigger("CambiarEstado");
     }
 

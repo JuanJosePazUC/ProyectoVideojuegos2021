@@ -24,6 +24,7 @@ public class PlataformaCaida : MonoBehaviour
         if (other.collider.gameObject.layer == LayerMask.NameToLayer("Suelo"))
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
+            AudioManager.Instance.Play("Explode");
             Destroy(gameObject);
         }
     }
@@ -33,6 +34,7 @@ public class PlataformaCaida : MonoBehaviour
         animator.SetTrigger("Apagar");
         yield return new WaitForSeconds(tiempoEspera);
         rb2D.constraints = RigidbodyConstraints2D.None;
+        AudioManager.Instance.Play("Fall");
         rb2D.AddForce(new Vector2(0, -1));
     }
 }

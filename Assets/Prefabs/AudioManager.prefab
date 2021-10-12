@@ -92,6 +92,12 @@ MonoBehaviour:
     pitch: 0.75
     loop: 0
     source: {fileID: 0}
+  - name: WallHit
+    clip: {fileID: 8300000, guid: 6ec1fabd5bcfe6e44adb45afbfd93be6, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   - name: Die
     clip: {fileID: 8300000, guid: 2b01a4790ad38b745b3f2528222858ff, type: 3}
     volume: 0.4
@@ -138,5 +144,29 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: e64647d3db03cd149bb962e6350ec586, type: 3}
     volume: 0.4
     pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Explode
+    clip: {fileID: 8300000, guid: bb9a2428ed5dbc043aa56d65778654c1, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Fall
+    clip: {fileID: 8300000, guid: 1371074324543fd4a88f7c328c827c1b, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Spikes
+    clip: {fileID: 8300000, guid: 57acacda56e53124192def71d48939f7, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Slime
+    clip: {fileID: 8300000, guid: 29c19547fea072849a0a6d375a5f93d1, type: 3}
+    volume: 0.1
+    pitch: 1.2
     loop: 0
     source: {fileID: 0}
