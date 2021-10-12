@@ -1,0 +1,112 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Calavera : MonoBehaviour
+{
+    private bool activado;
+    [SerializeField] private int daño;
+    [SerializeField] private int vidaMaxima;
+    [SerializeField] private Transform puntoDisparo;
+    [SerializeField] private GameObject balaCalavera;
+    private int vidaActual;
+    private bool mirandoDerecha = true;
+    private Animator animator;
+    [SerializeField] private Vector2 direccion;
+    [SerializeField] private float velocidadMovimiento;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+        vidaActual = vidaMaxima;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (activado)
+            {
+                other.gameObject.GetComponent<CombateJugador>().TomarDaño(daño);
+            }
+            else
+            {
+                if (other.GetContact(0).normal.y == -1)
+                {
+                    MovimientoJugador movimientoJugador = other.gameObject.GetComponent<MovimientoJugador>();
+                    movimientoJugador.Rebota();
+                    TomarDaño();
+                }
+            }
+        }
+
+        if (other.collider.gameObject.layer == LayerMask.NameToLayer("Suelo"))
+        {
+            CambiarDireccion(other.GetContact(0).normal);
+        }
+    }
+
+    public void CambiarDireccion(Vector2 valor)
+    {
+        if (valor.x < -0.1 || valor.x > 0.1)
+        {
+            direccion = new Vector2(direccion.x * -1, direccion.y);
+            Girar();
+        }
+
+        if (valor.y < -0.1 || valor.y > 0.1)
+        {
+            direccion = new Vector2(direccion.x, direccion.y * -1);
+        }
+    }
+
+    public void Disparar()
+    {
+        Instantiate(balaCalavera, puntoDisparo.position, puntoDisparo.rotation);
+    }
+
+    public void CambiarRotacionDisparo(Transform objetivo)
+    {
+        Vector3 dir = objetivo.position - puntoDisparo.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        puntoDisparo.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
+
+    private void Girar()
+    {
+        mirandoDerecha = !mirandoDerecha;
+        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y + 180, 0);
+    }
+
+    public void Activar()
+    {
+        activado = true;
+    }
+
+    public void Desactivar()
+    {
+        activado = false;
+    }
+
+    private void TomarDaño()
+    {
+        vidaActual -= 1;
+        animator.SetTrigger("Golpe");
+        activado = true;
+        if (vidaActual <= 0)
+        {
+            Destroy(gameObject);
+        }
+        velocidadMovimiento *= 2;
+    }
+
+    public Vector2 GetDireccion()
+    {
+        return direccion;
+    }
+
+    public float GetVelocidadMovimiento()
+    {
+        return velocidadMovimiento;
+    }
+}
