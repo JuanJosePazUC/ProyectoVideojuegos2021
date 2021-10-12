@@ -56,6 +56,12 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: FinalBattle
+    clip: {fileID: 8300000, guid: 0219a78c553d51145b91bca9698dbb32, type: 3}
+    volume: 0.15
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
   - name: Victory
     clip: {fileID: 8300000, guid: 8c8f8169c0c738947817a782ec725070, type: 3}
     volume: 0.15
@@ -168,5 +174,11 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 29c19547fea072849a0a6d375a5f93d1, type: 3}
     volume: 0.1
     pitch: 1.2
+    loop: 0
+    source: {fileID: 0}
+  - name: Shot
+    clip: {fileID: 8300000, guid: f6afa31cc941a8547a1b296daeee26e5, type: 3}
+    volume: 0.3
+    pitch: 1
     loop: 0
     source: {fileID: 0}

@@ -14,11 +14,15 @@ public class Calavera : MonoBehaviour
     private Animator animator;
     [SerializeField] private Vector2 direccion;
     [SerializeField] private float velocidadMovimiento;
+    [SerializeField] private GameObject plataforma;
+    [SerializeField] private GameObject efectoMuerte;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         vidaActual = vidaMaxima;
+        AudioManager.Instance.StopAll();
+        AudioManager.Instance.Play("FinalBattle");
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -63,6 +67,7 @@ public class Calavera : MonoBehaviour
     public void Disparar()
     {
         Instantiate(balaCalavera, puntoDisparo.position, puntoDisparo.rotation);
+        AudioManager.Instance.Play("Shot");
     }
 
     public void CambiarRotacionDisparo(Transform objetivo)
@@ -95,9 +100,17 @@ public class Calavera : MonoBehaviour
         activado = true;
         if (vidaActual <= 0)
         {
-            Destroy(gameObject);
+            Muerte();
         }
-        velocidadMovimiento *= 2;
+        velocidadMovimiento += 3;
+    }
+
+    private void Muerte()
+    {
+        plataforma.SetActive(false);
+        GameObject efecto = Instantiate(efectoMuerte, transform.position + new Vector3(0, 0, -1), transform.rotation);
+        efecto.transform.eulerAngles = new Vector3(efecto.transform.eulerAngles.x - 90, 0, 0);
+        Destroy(gameObject);
     }
 
     public Vector2 GetDireccion()
