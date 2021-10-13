@@ -2,12 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class MenuBotones : MonoBehaviour
 {
     [SerializeField] private GameObject menuPausa;
     [SerializeField] private GameObject menuBotones;
     private bool juegosPausado = false;
+
+    IEnumerator Start()
+    {
+        yield return new WaitForSeconds(2f);
+        CombateJugador combateJugador = GameObject.FindGameObjectWithTag("Player").GetComponent<CombateJugador>();
+        combateJugador.OnPlayerDeath += ReiniciarAutomatico;
+    }
+
     public void Pausar()
     {
         Time.timeScale = 0f;
@@ -33,5 +42,16 @@ public class MenuBotones : MonoBehaviour
         juegosPausado = false;
         menuPausa.SetActive(false);
         menuBotones.SetActive(true);
+    }
+
+    private void ReiniciarAutomatico(object sender, EventArgs e)
+    {
+        StartCoroutine(ReiniciarCR());
+    }
+
+    private IEnumerator ReiniciarCR()
+    {
+        yield return new WaitForSeconds(2f);
+        Reiniciar();
     }
 }

@@ -12,6 +12,11 @@ public class GameManager : MonoBehaviour
     private int cantidadPuntos;
     private int cantidadPuntosTemporal;
     [SerializeField] private List<GameObject> jugadores;
+    public event EventHandler<OnScoreChangeEventArgs> OnScoreChange;
+    public class OnScoreChangeEventArgs: EventArgs{
+        public int cantidadPuntosTemporalCambio;
+        public int cantidadPuntosCambio;
+    }
 
     private void Awake()
     {
@@ -39,6 +44,7 @@ public class GameManager : MonoBehaviour
     private void AumentarPuntosTemporal(int cantidadPuntosEntrada)
     {
         cantidadPuntosTemporal += cantidadPuntosEntrada;
+        OnScoreChange?.Invoke(this, new OnScoreChangeEventArgs {cantidadPuntosCambio = cantidadPuntos, cantidadPuntosTemporalCambio = cantidadPuntosTemporal});
     }
 
     public void AumetarPuntos()

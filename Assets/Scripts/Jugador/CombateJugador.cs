@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class CombateJugador : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class CombateJugador : MonoBehaviour
     private MovimientoJugador movimientoJugador;
     private Animator animator;
     private Rigidbody2D rb2D;
+    public event EventHandler OnPlayerDeath;
 
     private void Start()
     {
@@ -63,6 +65,7 @@ public class CombateJugador : MonoBehaviour
 
     public void Muerte()
     {
+        OnPlayerDeath?.Invoke(this, EventArgs.Empty);
         Destroy(this.gameObject);
     }
 

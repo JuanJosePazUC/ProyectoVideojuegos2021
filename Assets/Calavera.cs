@@ -29,18 +29,16 @@ public class Calavera : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (activado)
+
+            if (other.GetContact(0).normal.y == -1 && !activado)
             {
-                other.gameObject.GetComponent<CombateJugador>().TomarDaño(daño);
+                MovimientoJugador movimientoJugador = other.gameObject.GetComponent<MovimientoJugador>();
+                movimientoJugador.Rebota();
+                TomarDaño();
             }
             else
             {
-                if (other.GetContact(0).normal.y == -1)
-                {
-                    MovimientoJugador movimientoJugador = other.gameObject.GetComponent<MovimientoJugador>();
-                    movimientoJugador.Rebota();
-                    TomarDaño();
-                }
+                other.gameObject.GetComponent<CombateJugador>().TomarDaño(daño);
             }
         }
 
