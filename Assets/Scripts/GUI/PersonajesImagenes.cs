@@ -13,9 +13,9 @@ public class PersonajesImagenes : MonoBehaviour
     {
         image = GetComponent<Image>();
 
-        for (int i = 0; i < GameManager.Instance.GetJugadores().Count; i++)
+        for (int i = 0; i < GameManager.Instance.GetPersonajes().Count; i++)
         {
-            sprites.Add(GameManager.Instance.GetJugadores()[i].GetComponent<SpriteRenderer>().sprite);
+            sprites.Add(GameManager.Instance.GetPersonajes()[i].imagen);
         }
 
         index = PlayerPrefs.GetInt("JugadorIndex");

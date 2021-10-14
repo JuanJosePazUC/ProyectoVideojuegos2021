@@ -11,9 +11,10 @@ public class GameManager : MonoBehaviour
     private int cantidadMinimaFrutas;
     private int cantidadPuntos;
     private int cantidadPuntosTemporal;
-    [SerializeField] private List<GameObject> jugadores;
+    [SerializeField] private List<Personajes> personajes;
     public event EventHandler<OnScoreChangeEventArgs> OnScoreChange;
-    public class OnScoreChangeEventArgs: EventArgs{
+    public class OnScoreChangeEventArgs : EventArgs
+    {
         public int cantidadPuntosTemporalCambio;
         public int cantidadPuntosCambio;
     }
@@ -44,7 +45,7 @@ public class GameManager : MonoBehaviour
     private void AumentarPuntosTemporal(int cantidadPuntosEntrada)
     {
         cantidadPuntosTemporal += cantidadPuntosEntrada;
-        OnScoreChange?.Invoke(this, new OnScoreChangeEventArgs {cantidadPuntosCambio = cantidadPuntos, cantidadPuntosTemporalCambio = cantidadPuntosTemporal});
+        OnScoreChange?.Invoke(this, new OnScoreChangeEventArgs { cantidadPuntosCambio = cantidadPuntos, cantidadPuntosTemporalCambio = cantidadPuntosTemporal });
     }
 
     public void AumetarPuntos()
@@ -68,9 +69,9 @@ public class GameManager : MonoBehaviour
         cantidadPuntos = 0;
     }
 
-    public List<GameObject> GetJugadores()
+    public List<Personajes> GetPersonajes()
     {
-        return jugadores;
+        return personajes;
     }
 
     public int GetCantidadPuntos()

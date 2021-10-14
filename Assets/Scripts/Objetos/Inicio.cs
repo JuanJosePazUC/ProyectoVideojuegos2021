@@ -10,7 +10,7 @@ public class Inicio : MonoBehaviour
     public void CrearJugador()
     {
         int indexJugador = PlayerPrefs.GetInt("JugadorIndex");
-        GameObject jugador = GameManager.Instance.GetJugadores()[indexJugador];
+        GameObject jugador = GameManager.Instance.GetPersonajes()[indexJugador].personajeJugable;
         Instantiate(jugador, puntoSpawn.position, Quaternion.identity);
         AudioManager.Instance.Play("Appear");
     }
