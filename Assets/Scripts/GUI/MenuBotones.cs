@@ -12,7 +12,7 @@ public class MenuBotones : MonoBehaviour
 
     IEnumerator Start()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         CombateJugador combateJugador = GameObject.FindGameObjectWithTag("Player").GetComponent<CombateJugador>();
         combateJugador.OnPlayerDeath += ReiniciarAutomatico;
     }

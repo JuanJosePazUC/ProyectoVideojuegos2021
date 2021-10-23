@@ -13,17 +13,20 @@ public class PersonajesImagenes : MonoBehaviour
     {
         image = GetComponent<Image>();
 
-        for (int i = 0; i < GameManager.Instance.GetPersonajes().Count; i++)
+        foreach (Personajes sprite in GameManager.Instance.GetPersonajes())
         {
-            sprites.Add(GameManager.Instance.GetPersonajes()[i].imagen);
+            sprites.Add(sprite.imagen);
         }
 
         index = PlayerPrefs.GetInt("JugadorIndex");
         if (index > sprites.Count - 1)
         {
             index = 0;
-
         }
+
+        Debug.Log(sprites.Count);
+        Debug.Log(GameManager.Instance.GetPersonajes().Count);
+        
 
         CambiarImagen();
     }

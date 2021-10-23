@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 442fd0b970ff85447a1d861810df1fca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jugadores:
-  - {fileID: 6376277312471079700, guid: 3ff6e8aae7a9a864683f4f12540bcec7, type: 3}
-  - {fileID: 2548699962585326031, guid: 2f5ac3dce056f4e45aa1d9417db3f23c, type: 3}
-  - {fileID: 5020065555971249893, guid: 40841bb3550f8e740b0400e0bb2fba8f, type: 3}
-  - {fileID: 8816358828428901719, guid: 809bb6feffa301044ba7a292b7260f1a, type: 3}
+  personajes:
+  - {fileID: 11400000, guid: 52ebdf1abe010394d96d08fb2eb0cc3f, type: 2}
+  - {fileID: 11400000, guid: 7226bc734e41b814cb8e7c87e597bd84, type: 2}
+  - {fileID: 11400000, guid: 64fd9a699f5d4134b89de972701cdd69, type: 2}
+  - {fileID: 11400000, guid: 78da54ae5552a9a4faa54e667c262c70, type: 2}
