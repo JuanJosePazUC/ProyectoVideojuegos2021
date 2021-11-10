@@ -8,6 +8,7 @@ TagManager:
   - Enemigo
   - BanderaFinal
   - PuntosDeVidaUI
+  - PuntosDeVidaBoss
   layers:
   - Default
   - TransparentFX

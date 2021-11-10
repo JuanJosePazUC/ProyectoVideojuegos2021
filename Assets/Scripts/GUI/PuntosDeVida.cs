@@ -12,7 +12,6 @@ public class PuntosDeVida : MonoBehaviour
         for (int i = 0; i < cantidadPuntosVida; i++)
         {
             Instantiate(puntoVida, transform.position, transform.rotation, gameObject.transform);
-
         }
 
         foreach (Transform child in this.transform)

@@ -16,6 +16,7 @@ public class Calavera : MonoBehaviour
     [SerializeField] private float velocidadMovimiento;
     [SerializeField] private GameObject plataforma;
     [SerializeField] private GameObject efectoMuerte;
+    private PuntosDeVida puntosDeVidaUI;
 
     private void Start()
     {
@@ -23,6 +24,9 @@ public class Calavera : MonoBehaviour
         vidaActual = vidaMaxima;
         AudioManager.Instance.StopAll();
         AudioManager.Instance.Play("FinalBattle");
+
+        puntosDeVidaUI = GameObject.FindGameObjectWithTag("PuntosDeVidaBoss").GetComponent<PuntosDeVida>();
+        puntosDeVidaUI.InicializarPuntosVida(vidaMaxima);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -46,6 +50,7 @@ public class Calavera : MonoBehaviour
         {
             CambiarDireccion(other.GetContact(0).normal);
         }
+
     }
 
     public void CambiarDireccion(Vector2 valor)
@@ -95,6 +100,7 @@ public class Calavera : MonoBehaviour
     {
         vidaActual -= 1;
         animator.SetTrigger("Golpe");
+        puntosDeVidaUI.CambiarVidaDaño(1);
         activado = true;
         if (vidaActual <= 0)
         {
